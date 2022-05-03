@@ -86,11 +86,24 @@ class Programmer extends Person {
     completeTask(){
         if(this.completeTask.busy){
             this.busy=false;
-            console.log(`${this.name} isn't busy, feel free to give another task.`);
+            console.log(`${this.name} isn't busy, please give another task.`);
         }else
         console.log(`${this.name} is busy`);
     }
     newTask(){
-        if(this.offer)
+        if(this.newTask.busy){
+            console.log(`${this.name} is not busy, available for new task.`);
+        }else
+        console.log(`${this.name} is currently busy, no new tasks.`);
+    }
+    learnLanguage(language){
+        this.languages.push(language);
+        console.log(`${this.name} has learned a new language, its ${language}!`);
+    }
+    listLanguage(){
+        console.log(`${this.name} is fluent in ${this.languages.toString()}.`);
     }
 }
+
+const barry = new Programmer ("barry", "junior dev", 26);
+const sarah = new Programmer ("sarah", "mid dev", 34);
